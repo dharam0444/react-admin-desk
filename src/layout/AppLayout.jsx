@@ -17,7 +17,7 @@ export function AppLayout() {
           className="flex-grow-1 overflow-auto bg-light"
           style={{
             paddingTop: "60px",
-            marginLeft: isLogin ? (isSidebarOpen ? "250px" : "70px") : "0",
+            marginLeft: isLogin ? (isSidebarOpen ? "250px" : "0px") : "0",
             transition: "margin-left 0.3s ease",
           }}
         >

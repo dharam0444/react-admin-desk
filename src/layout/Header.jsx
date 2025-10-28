@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/context/AuthContext";
-import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-export default function Header() {
+export default function Header({ onToggleSidebar }) {
   const { user, isLogin, logout } = useAuth();
   const navigate = useNavigate();
   function handleLogout() {
@@ -12,7 +11,7 @@ export default function Header() {
   }
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <Link className="navbar-brand ms-2" to={"/"}>
+      <Link className="navbar-brand ms-2" onClick={onToggleSidebar}>
         Admin Desk
       </Link>
       {/* <button

@@ -3,7 +3,7 @@ import { FaUsers, FaShoppingCart, FaBoxOpen, FaUserTie, FaChartLine } from "reac
 
 export default function Dashboard() {
   return (
-    <div className="container py-4 mx-4">
+    <div className="container py-4 mx-0 px-md-4 py-md-4">
       <h2 className="mb-4 fw-semibold">Admin Dashboard</h2>
       <p className="text-muted mb-5">
         Welcome back 👋 — manage your users, products, orders, and customers all from one place. Use

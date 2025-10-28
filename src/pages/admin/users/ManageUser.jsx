@@ -1,6 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 import { apiRequest } from "@api/apiClient";
@@ -61,7 +61,7 @@ export default function ManageUser() {
 
   return (
     <div className="container signup-container">
-      <h3 className="form-title">User Details</h3>
+      <h3 className="form-title">{id ? "Update User" : "Add User"}</h3>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="row g-2">
           <div className="col-md-12">
@@ -95,8 +95,11 @@ export default function ManageUser() {
         </div>
         <div className="mt-4 text-center">
           <button className="btn btn-primary px-4" type="submit">
-            Update
+            {id ? "Update" : "Add"}
           </button>
+          <Link to="/admin/users" className="btn btn-danger ms-2">
+            Cancel
+          </Link>
         </div>
       </form>
     </div>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "@/utils/context/AuthContext";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,10 +12,9 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen }) {
   const navigate = useNavigate();
   const { logout } = useAuth();
-  const [isOpen, setIsOpen] = useState(true);
 
   function handleLogout() {
     logout();
@@ -33,14 +31,6 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Sidebar Toggle Button (Visible on smaller screens) */}
-      <button
-        className="btn btn-white text-white position-fixed top-0 start-0 m-3 d-md-none z-3"
-        onClick={() => setIsOpen(prev => !prev)}
-      >
-        {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-      </button>
-
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -49,12 +39,12 @@ export default function Sidebar() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -250, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark position-fixed top-0 start-0 vh-100"
+            className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark position-fixed top-0 start-0 vh-100 "
             style={{ width: "240px", zIndex: 2 }}
           >
             {/* Sidebar Header */}
             <div className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-              <span className="fs-4 fw-bold">Admin Panel</span>
+              <span className="fs-4 fw-bold d-none d-md-inline">Admin Desk</span>
             </div>
             <hr />
 
@@ -71,6 +61,7 @@ export default function Sidebar() {
                     }
                   >
                     {item.icon}
+                    {/* Hide text on small screens */}
                     <span>{item.name}</span>
                   </NavLink>
                 </li>

@@ -114,7 +114,7 @@ export default function Users() {
   };
 
   return (
-    <div className="container py-4 mx-4">
+    <div className="container py-0 mx-0 px-md-4 py-md-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2 className="mb-4 fw-semibold">User Listing</h2>
         <Link to="/admin/users/add" className="btn btn-primary px-4 ms-2" type="button">

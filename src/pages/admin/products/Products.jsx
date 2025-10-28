@@ -148,7 +148,7 @@ export default function Products() {
   };
 
   return (
-    <div className="container py-4 mx-4">
+    <div className="container py-4 mx-0 px-md-4 py-md-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2 className="mb-4 fw-semibold">Product Listing</h2>
         <Link to="/admin/products/add" className="btn btn-primary px-4 ms-2" type="button">
